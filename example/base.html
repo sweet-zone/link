@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>link-js example</title>
+</head>
+<body>
+  <ul>
+    <li><a href="#/user">#/user</a></li>
+    <li><a href="#/user/profile/12">#/user/profile/12</a></li>
+    <li><a href="#/my?key=12345">#/my</a></li>
+  </ul>
+  <script src="../dist/link.js"></script>
+  <script>
+
+    var routes = [{
+      url: '/user',
+      view: function() { console.log('user page') },
+      sub: [{
+        url: '/profile/:id',
+        view: function(id) { console.log('user profile is ', id) }
+      }]
+    }, {
+      url: '/my',
+      view: function(params) { console.log(params) }
+    }]
+
+    new Link(routes)
+  </script>
+</body>
+</html>
