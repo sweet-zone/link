@@ -21,7 +21,7 @@ export default class Link {
 
     routes.forEach((route) => {
 
-      let compositeUrl = up + route.url
+      let compositeUrl = processSlash(up + route.url)
 
       this.routes.push({
         url: compositeUrl,
